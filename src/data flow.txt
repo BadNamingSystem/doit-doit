@@ -1,0 +1,23 @@
+Concise Application Data Flow Summary
+
+1. Central State (App.tsx):
+◦ The App component holds the main todos array in its state.
+◦ It also manages auxiliary UI states like showAddTodo (to display the form) and todoToEdit (to track which item is being edited).
+◦ All core CRUD (Create, Read, Update, Delete) logic (addTodo, deleteTodo, updateTodo, startEdit) resides here.
+
+2. Data Down, Actions Up (Props & Callbacks):
+◦ Data Down: The App passes the todos array and the todoToEdit object (as isEditing) down to its child components (TodoList and FormAddTodo) via props.
+◦ Actions Up: Child components don't modify the state directly. Instead, they receive callback functions (like addTodo, deleteTodo, updateTodo, startEdit, onClose) as props.
+  When a user interacts with a child component (e.g., clicks a button, submits a form), the child calls the appropriate callback function, passing any necessary
+  data back up to the App component.
+
+3. Persistence (useEffect):
+◦ A useEffect hook in App.tsx automatically saves the entire todos array to localStorage whenever it changes, ensuring your data persists across browser sessions.
+  It also safely loads data on initial app startup.
+
+4. Editing Flow (Key Interaction):
+◦ When you click "Edit" on a TodoItem, the startEdit callback sends the specific to-do object up to App.
+◦ App stores this to-do in todoToEdit and shows the FormAddTodo.
+◦ FormAddTodo receives todoToEdit (as isEditing), pre-fills its fields, and changes its button text to "Update".
+◦ When you submit the form, it calls updateTodo (if isEditing is present) or addTodo (if not), sending the modified data back to App.
+◦ App updates the todos state, and the form calls onClose to hide itself and reset todoToEdit.

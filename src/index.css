@@ -1,0 +1,200 @@
+:root {
+    --light-background: #E8F0FF;
+    --dark-background: #072536;
+    --light-textColor: #d5d5e0;
+    --main-textColor: #2D3339;
+    --main-accent: #ee8613;
+    --main-accent-dark: #b26309;
+    --secondary-accent: #575A4B;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 80%;
+    background-color: var(--dark-background);
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding-top: 5rem;
+}
+
+.btn {
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 0.3em 0.6em;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--main-accent);
+    color: var(--main-textColor);
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--main-accent-dark);
+    color: var(--light-textColor);
+}
+
+.todo-app {
+    background-color: var(--light-background);
+    width: 30rem;
+    height: 40rem;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.todo-app > .btn {
+    margin-bottom: 3rem;
+}
+
+/* HEADER COMPONENT */
+.header {
+    width: 100%;
+    color: var(--main-accent);
+    font-size: 2rem;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 4px dashed var(--secondary-accent);
+}
+
+.header h3 {
+    color: var(--main-textColor);
+    font-family: "Momo Trust Display", "Segoe UI", Helvetica, Verdana, monospace;
+}
+
+.header i {
+    font-size: 2.7rem;
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* FORM COMPONENT */
+.form-add-todo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.form-add-todo button {
+    margin-top: 2rem;
+    margin-bottom: 0;
+}
+
+.form-input {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: center;
+    font-family: "Trebuchet MS", Arial, Verdana, sans-serif;
+}
+
+.form-input label {
+    font-size: 1.3rem;
+    color: var(--secondary-accent);
+    font-family: "Arial Black", Verdana, Tahoma, sans-serif;
+}
+
+.form-input input,
+.form-input, textarea {
+    color: var(--main-textColor);
+}
+
+.form-input input {
+    height: 2.5rem;
+    width: 16rem;
+    padding: 0.2em 0.4em;
+    font-size: 1.5rem;
+}
+
+.form-input textarea {
+    resize: none;
+    padding: 0.2em 0.4em;
+    font-size: 1.5rem;
+}
+
+/* TODOLIST  COMPONENT */
+.todo-list {
+    width: 100%;
+    padding-top: 0.8rem;
+    flex-grow: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+/* TODOITEM */
+.todo-item {
+    list-style: none;
+    border-bottom: 1px dashed var(--secondary-accent);
+    color: var(--main-textColor);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem 0.5em 1rem;
+}
+
+.todo-content {
+    flex: 1;
+}
+
+.todo-content h4 {
+    font-family: "Momo Trust Display", "Segoe UI", Helvetica, Verdana, monospace;
+    font-weight: 300;
+}
+
+.todo-description {
+    font-family: "Trebuchet MS", Arial, Verdana, sans-serif;
+}
+
+.todo-date {
+    font-size: 0.8rem;
+    font-style: italic;
+    text-indent: 1em;
+    margin: 0.2em 0 0.5em 0
+}
+
+.todo-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    margin-left: 1em;
+}
+
+.todo-actions button {
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 150ms ease-in-out;
+}
+
+.del-todo {
+    color: darkred;
+}
+
+.edit-todo {
+    color: darkgreen;
+}
+
+.todo-actions button:hover {
+    transform: scale(1.2);
+    color: var(--main-accent-dark);
+}
